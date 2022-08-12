@@ -1,0 +1,40 @@
+---
+title: "EDS 221 Day 5 Notes Lecture + Computational"
+author: "Dalila Lara"
+date: "2022-08-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(testthat)
+```
+
+# Lecture 9 Functions
+Unit Test: 
+Formal automated check to make sure a piece ("unit") of your code is behaving expectedly 
+
+testthat::
+Provides functions to easily descive what the function needs to do and catches, erros, messages, and warnings
+  - expect_equal() does function return expected values
+  - expect_type() does it return expected type
+  - expect_length() retun length
+  - expect_true() function return TRUE
+
+```{r}
+# Can run `testthat` function to see if value output runs as shoould
+fish_mass <- function(alpha, beta, fish_length) {
+if (fish_length <= 0) {
+stop("Fish length must be greater than 0.")
+}
+mass <- alpha * (fish_length ^ beta)
+}
+
+#test example
+expect_length(fish_mass(alpha = 1, beta = 2, fish_length = 3), 1)
+# we expect the length to be returned of vector
+# for fish_mass to be evaluated at these values
+# to equal 1
+```
+
+
